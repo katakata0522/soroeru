@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="そろえる">
+  <rect width="32" height="32" rx="7" fill="#1c1917"/>
+  <rect x="6.5" y="6.5" width="19" height="19" rx="2" fill="none" stroke="#f3f0ea" stroke-width="2"/>
+  <rect x="10" y="12" width="12" height="8" fill="#f3f0ea"/>
+</svg>

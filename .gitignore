@@ -1,0 +1,13 @@
+node_modules
+.vercel
+.grok
+.tanstack
+screenshots
+artifacts
+attachments
+dist
+*.log
+AGENTS.md
+fixtures
+src/assets/avatar.jpg
+.node_modules.lock

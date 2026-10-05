@@ -1,0 +1,160 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Hiragino Sans", "Yu Gothic", "Noto Sans JP", sans-serif;
+  --color-bg: #f3f0ea;
+  --color-surface: #fffcf7;
+  --color-fg: #1c1917;
+  --color-muted: #5e564e;
+  --color-line: #e3dbd1;
+  --color-accent: #9a3412;
+  --color-accent-fg: #fffcf7;
+}
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    margin: 0;
+    min-height: 100dvh;
+    background: var(--color-bg);
+    color: var(--color-fg);
+    font-family: var(--font-sans);
+    line-height: 1.55;
+  }
+
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-fg);
+    outline-offset: 3px;
+  }
+
+  ::selection {
+    background: #e7d2c6;
+    color: var(--color-fg);
+  }
+}
+
+.press {
+  transition: scale 150ms ease-out;
+}
+
+.press:active:not(:disabled) {
+  scale: 0.96;
+}
+
+h1 {
+  text-wrap: balance;
+  line-height: 1.2;
+}
+
+.drop-zone {
+  transition:
+    border-color 180ms ease,
+    background-color 180ms ease;
+}
+
+.drop-zone.is-over {
+  border-color: var(--color-fg);
+  background: #fff;
+}
+
+.choice {
+  transition:
+    background-color 180ms ease,
+    color 180ms ease,
+    border-color 180ms ease;
+}
+
+.choice[aria-pressed="true"] {
+  background: var(--color-fg);
+  color: var(--color-surface);
+  border-color: var(--color-fg);
+}
+
+.fit-figure {
+  width: 2.25rem;
+  height: 2.25rem;
+  border: 1.5px solid currentColor;
+  border-radius: 0.35rem;
+  position: relative;
+  overflow: hidden;
+  flex: none;
+}
+
+.fit-figure i {
+  position: absolute;
+  background: currentColor;
+}
+
+.fit-contain i {
+  width: 68%;
+  height: 42%;
+  left: 16%;
+  top: 29%;
+}
+
+.fit-cover i {
+  width: 150%;
+  height: 72%;
+  left: -25%;
+  top: 14%;
+}
+
+.fit-stretch i {
+  inset: 0.35rem;
+}
+
+.preview-frame {
+  background-color: #fff;
+  background-image:
+    linear-gradient(45deg, #ece6dc 25%, transparent 25%),
+    linear-gradient(-45deg, #ece6dc 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, #ece6dc 75%),
+    linear-gradient(-45deg, transparent 75%, #ece6dc 75%);
+  background-size: 1rem 1rem;
+  background-position:
+    0 0,
+    0 0.5rem,
+    0.5rem -0.5rem,
+    -0.5rem 0;
+}
+
+.preview-frame canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.can-pan {
+  touch-action: none;
+  cursor: grab;
+}
+
+.can-pan:active {
+  cursor: grabbing;
+}
+
+.warn-pill {
+  background: var(--color-accent);
+  color: var(--color-accent-fg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .press,
+  .drop-zone,
+  .choice {
+    transition: none;
+  }
+
+  .press:active:not(:disabled) {
+    scale: 1;
+  }
+}
